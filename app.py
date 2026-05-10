@@ -601,9 +601,6 @@ if len(risks) > 0:
     for item in risks:
         st.write(f"• {item}")
 
-else:
-    st.write("Risiko kelembagaan relatif terkendali.")
-
 elif selected_step == "7. Reflective Relevance":
 
     st.subheader("Problem–Design Alignment")
