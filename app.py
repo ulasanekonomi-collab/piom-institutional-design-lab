@@ -143,32 +143,53 @@ elif selected_step == "3. Root Cause Reflection":
 
     st.subheader("Reflective Diagnosis")
 
-    root_cause = st.text_area(
+    # INITIALIZE SESSION STATE
+
+    if "root_cause" not in st.session_state:
+        st.session_state.root_cause = ""
+
+    if "reproduction" not in st.session_state:
+        st.session_state.reproduction = ""
+
+    if "blocked_change" not in st.session_state:
+        st.session_state.blocked_change = ""
+
+    if "reflective_note" not in st.session_state:
+        st.session_state.reflective_note = ""
+
+    # REFLECTIVE QUESTIONS
+
+    st.session_state.root_cause = st.text_area(
         label="Apa akar terdalam dari masalah ini?",
-        placeholder="contoh: budaya patronase, ketakutan kehilangan posisi, struktur insentif yang salah"
+        value=st.session_state.root_cause,
+        placeholder="contoh: budaya patronase, struktur insentif salah, ketergantungan politik"
     )
 
-    reproduction = st.text_area(
+    st.session_state.reproduction = st.text_area(
         label="Mengapa masalah ini terus direproduksi dari waktu ke waktu?",
-        placeholder="contoh: tidak ada hukuman, elite diuntungkan, organisasi terbiasa dengan pola lama"
+        value=st.session_state.reproduction,
+        placeholder="contoh: elite diuntungkan, organisasi terbiasa, tidak ada hukuman efektif"
     )
 
-    blocked_change = st.text_area(
+    st.session_state.blocked_change = st.text_area(
         label="Apa yang paling menghambat perubahan?",
-        placeholder="contoh: resistensi elite, legitimasi budaya lama, ketergantungan sistem"
+        value=st.session_state.blocked_change,
+        placeholder="contoh: resistensi elite, legitimasi budaya lama, ketakutan kehilangan posisi"
     )
 
-    reflective_note = st.text_area(
+    st.session_state.reflective_note = st.text_area(
         label="Refleksi kritis Anda terhadap sistem ini",
+        value=st.session_state.reflective_note,
         placeholder="Apa yang sebenarnya sedang dipertahankan oleh sistem?"
     )
 
     st.info(
-        "Tahap ini membantu pengguna memahami bahwa masalah kelembagaan biasanya diproduksi ulang oleh struktur insentif, relasi kekuasaan, dan budaya organisasi."
+        """
+        Tahap refleksi membantu pengguna memahami bahwa masalah kelembagaan
+        biasanya diproduksi ulang oleh relasi kekuasaan, struktur insentif,
+        budaya organisasi, dan resistensi terhadap perubahan.
+        """
     )
-
-
-
 elif selected_step == "4. Design Simulation":
 
     st.subheader("Simulation Engine")
