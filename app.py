@@ -103,12 +103,12 @@ cost_map = st.text_area(
 )
 
 behavior_map = st.text_area(
-    "Perilaku apa yang terus berulang dalam sistem?",
+    label="Perilaku apa yang terus berulang dalam sistem?",
     placeholder="contoh: saling lempar tanggung jawab, keterlambatan, manipulasi laporan"
 )
 
 outcome_map = st.text_area(
-    "Outcome buruk apa yang terus diproduksi sistem?",
+    label="Outcome buruk apa yang terus diproduksi sistem?",
     placeholder="contoh: pelayanan lambat, konflik internal, distrust publik"
 )
 
