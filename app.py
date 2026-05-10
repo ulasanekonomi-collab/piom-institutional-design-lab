@@ -320,10 +320,10 @@ elif selected_step == "5. Resistance Analysis":
 
     # AMBIL DATA DARI SIMULATION
 
-    benefit = st.session_state.benefit_score
-    cost = st.session_state.cost_score
-    information = st.session_state.information_score
-    normative = st.session_state.normative_score
+    benefit = st.session_state.get("benefit_score", 5)
+    cost = st.session_state.get("cost_score", 5)
+    information = st.session_state.get("information_score", 5)
+    normative = st.session_state.get("normative_score", 5)
 
     # RESISTANCE COMPONENTS
 
