@@ -111,7 +111,7 @@ outcome_map = st.text_area(
     "Outcome buruk apa yang terus diproduksi sistem?",
     placeholder="contoh: pelayanan lambat, konflik internal, distrust publik"
 )
-
+)
 elif selected_step == "3. Root Cause Reflection":
 
     st.subheader("Reflective Diagnosis")
