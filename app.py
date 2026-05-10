@@ -84,36 +84,36 @@ elif selected_step == "2. Institutional Diagnosis":
 
     power_map = st.text_area(
         label="Siapa aktor dominan atau paling berpengaruh?",
-        placeholder="contoh: pimpinan, elite birokrasi, vendor, kelompok senior"
+        placeholder="contoh: pimpinan, elite birokrasi, vendor, kelompok senior",
         key="power_map"
     )
 
     institution_map = st.text_area(
         label="Aturan formal atau norma informal apa yang memperkuat masalah?",
-        placeholder="contoh: SOP usang, budaya senioritas, aturan birokratis"
+        placeholder="contoh: SOP usang, budaya senioritas, aturan birokratis",
         key="institution_map"
     )
 
     incentive_map = st.text_area(
         label="Insentif apa yang membuat perilaku bermasalah tetap bertahan?",
-        placeholder="contoh: reward salah sasaran, keuntungan politik, kenyamanan status quo"
+        placeholder="contoh: reward salah sasaran, keuntungan politik, kenyamanan status quo",
         key="incentive_map"
     )
 
     cost_map = st.text_area(
         label="Apa sumber transaction cost utama?",
-        placeholder="contoh: koordinasi lambat, birokrasi panjang, data tidak terintegrasi"
+        placeholder="contoh: koordinasi lambat, birokrasi panjang, data tidak terintegrasi",
         key="cost_map"
     )
 
     behavior_map = st.text_area(
         label="Perilaku apa yang terus berulang dalam sistem?",
-        placeholder="contoh: saling lempar tanggung jawab, keterlambatan, manipulasi laporan"
+        placeholder="contoh: saling lempar tanggung jawab, keterlambatan, manipulasi laporan",
     )
 
     outcome_map = st.text_area(
         label="Outcome buruk apa yang terus diproduksi sistem?",
-        placeholder="contoh: pelayanan lambat, konflik internal, distrust publik"
+        placeholder="contoh: pelayanan lambat, konflik internal, distrust publik",
         key=" outcome_map"
     )
 
