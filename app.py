@@ -401,23 +401,6 @@ elif selected_step == "5. Resistance Analysis":
         "Institutional Resistance Score",
         round(resistance_score, 2)
     )
-st.write("### Institutional Signals Detected")
-
-if detected_keywords:
-
-    for keyword in detected_keywords:
-        st.write(f"- {keyword}")
-
-if positive_keywords:
-
-    st.write("### Positive Institutional Signals")
-
-    for keyword in positive_keywords:
-        st.write(f"✅ {keyword}")
-
-if not detected_keywords and not positive_keywords:
-
-    st.write("Tidak ada sinyal institusional spesifik terdeteksi.")
     
     st.divider()
 
