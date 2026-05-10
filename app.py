@@ -369,7 +369,7 @@ elif selected_step == "5. Resistance Analysis":
         + perception_resistance
         + cultural_resistance
     ) / 4
-    resistance_score += keyword_resistance
+    resistance_score += keyword_resistance * 0.3
     st.metric(
         "Institutional Resistance Score",
         round(resistance_score, 2)
