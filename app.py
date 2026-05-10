@@ -79,18 +79,38 @@ if selected_step == "1. Problem Identification":
     value=st.session_state.bad_outcome)
 
 elif selected_step == "2. Institutional Diagnosis":
-
+   
     st.subheader("Institutional Mapping")
 
-    st.write("""
-    Analisis relasi:
-    - Power
-    - Institution
-    - Incentive
-    - Transaction Cost
-    - Behavior
-    - Outcome
-    """)
+power_map = st.text_area(
+    "Siapa aktor dominan atau paling berpengaruh?",
+    placeholder="contoh: pimpinan, elite birokrasi, vendor, kelompok senior"
+)
+
+institution_map = st.text_area(
+    "Aturan formal atau norma informal apa yang memperkuat masalah?",
+    placeholder="contoh: SOP usang, budaya senioritas, aturan birokratis"
+)
+
+incentive_map = st.text_area(
+    "Insentif apa yang membuat perilaku bermasalah tetap bertahan?",
+    placeholder="contoh: reward salah sasaran, keuntungan politik, kenyamanan status quo"
+)
+
+cost_map = st.text_area(
+    "Apa sumber transaction cost utama?",
+    placeholder="contoh: koordinasi lambat, birokrasi panjang, data tidak terintegrasi"
+)
+
+behavior_map = st.text_area(
+    "Perilaku apa yang terus berulang dalam sistem?",
+    placeholder="contoh: saling lempar tanggung jawab, keterlambatan, manipulasi laporan"
+)
+
+outcome_map = st.text_area(
+    "Outcome buruk apa yang terus diproduksi sistem?",
+    placeholder="contoh: pelayanan lambat, konflik internal, distrust publik"
+)
 
 elif selected_step == "3. Root Cause Reflection":
 
