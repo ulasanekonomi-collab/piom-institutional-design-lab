@@ -190,14 +190,106 @@ elif selected_step == "3. Root Cause Reflection":
         budaya organisasi, dan resistensi terhadap perubahan.
         """
     )
+    
 elif selected_step == "4. Design Simulation":
 
-    st.subheader("Simulation Engine")
+    st.subheader("Institutional Design Simulation")
 
-    st.slider("Benefit / Incentive", 0, 10, 5)
-    st.slider("Transaction Cost", 0, 10, 5)
-    st.slider("Information / Framing", 0, 10, 5)
-    st.slider("Normative Support", 0, 10, 5)
+    # INITIALIZE SESSION STATE
+
+    if "benefit_score" not in st.session_state:
+        st.session_state.benefit_score = 5
+
+    if "cost_score" not in st.session_state:
+        st.session_state.cost_score = 5
+
+    if "information_score" not in st.session_state:
+        st.session_state.information_score = 5
+
+    if "normative_score" not in st.session_state:
+        st.session_state.normative_score = 5
+
+    # SLIDERS
+
+    st.session_state.benefit_score = st.slider(
+        "Benefit / Incentive",
+        0, 10,
+        st.session_state.benefit_score
+    )
+
+    st.session_state.cost_score = st.slider(
+        "Transaction Cost",
+        0, 10,
+        st.session_state.cost_score
+    )
+
+    st.session_state.information_score = st.slider(
+        "Information / Framing",
+        0, 10,
+        st.session_state.information_score
+    )
+
+    st.session_state.normative_score = st.slider(
+        "Normative / Moral Support",
+        0, 10,
+        st.session_state.normative_score
+    )
+
+    # BEHAVIORAL EQUATION
+
+    behavior_score = (
+        st.session_state.benefit_score
+        + st.session_state.information_score
+        + st.session_state.normative_score
+        - st.session_state.cost_score
+    )
+
+    # NORMALIZATION
+
+    probability_change = max(
+        0,
+        min(
+            100,
+            int((behavior_score / 20) * 100)
+        )
+    )
+
+    st.divider()
+
+    st.subheader("Behavioral Projection")
+
+    st.metric(
+        "Probability of Behavioral Change",
+        f"{probability_change}%"
+    )
+
+    # INTERPRETATION
+
+    if probability_change <= 30:
+
+        st.error(
+            "Desain kelembagaan masih lemah dalam mendorong perubahan perilaku."
+        )
+
+    elif probability_change <= 70:
+
+        st.warning(
+            "Perubahan perilaku mungkin terjadi, tetapi masih membutuhkan dukungan institusional tambahan."
+        )
+
+    else:
+
+        st.success(
+            "Desain kelembagaan cukup kuat untuk mendorong perubahan perilaku."
+        )
+
+    st.info(
+        """
+        Simulasi ini membantu pengguna memahami bagaimana perubahan insentif,
+        biaya transaksi, framing informasi, dan dukungan normatif
+        dapat memengaruhi kemungkinan perubahan perilaku.
+        """
+    )
 
 elif selected_step == "5. Resistance Analysis":
 
