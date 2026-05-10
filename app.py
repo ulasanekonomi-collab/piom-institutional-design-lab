@@ -58,12 +58,11 @@ with col1:
 
 with col2:
     st.title("PIOM Institutional Design Lab")
-    st.caption("Dikembangkan oleh Yuhka Sundaya, Ekonomi Pembangunan Unisba")
+    st.caption("Laboratorium desain kelembagaan untuk diagnosis, simulasi, refleksi, dan rekayasa institusional.")
 
 st.image(foto, width=180)
 st.markdown("""
-Laboratorium desain kelembagaan untuk diagnosis,
-simulasi, refleksi, dan rekayasa institusional.
+Dikembangkan oleh Yuhka Sundaya, Ekonomi Pembangunan Unisba
 """)
 
 st.divider()
