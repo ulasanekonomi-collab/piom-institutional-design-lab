@@ -501,7 +501,108 @@ elif selected_step == "6. Feasibility Projection":
 
     st.subheader("Feasibility Analysis")
 
-    st.info("Projection engine akan dikembangkan.")
+# AMBIL DATA DARI SIMULATION
+benefit = st.session_state.benefit_score
+cost = st.session_state.cost_score
+information = st.session_state.information_score
+normative = st.session_state.normative_score
+
+# AMBIL RESISTANCE SCORE
+incentive_resistance = 10 - benefit
+administrative_resistance = cost
+perception_resistance = 10 - information
+cultural_resistance = 10 - normative
+
+resistance_score = (
+    incentive_resistance
+    + administrative_resistance
+    + perception_resistance
+    + cultural_resistance
+) / 4
+
+# HITUNG FEASIBILITY
+reform_support = (
+    benefit
+    + information
+    + normative
+) / 3
+
+reform_barrier = (
+    cost
+    + resistance_score
+) / 2
+
+feasibility_score = reform_support - reform_barrier + 5
+
+# NORMALISASI
+feasibility_score = max(0, min(10, feasibility_score))
+
+# OUTPUT SCORE
+st.metric(
+    "Reform Feasibility Score",
+    round(feasibility_score, 2)
+)
+
+st.divider()
+
+# INTERPRETASI
+if feasibility_score >= 7:
+    st.success(
+        "Reformasi sangat layak dijalankan dan memiliki dukungan institusional yang cukup kuat."
+    )
+
+elif feasibility_score >= 5:
+    st.warning(
+        "Reformasi cukup layak dijalankan, tetapi membutuhkan strategi bertahap dan penguatan koalisi."
+    )
+
+else:
+    st.error(
+        "Reformasi berisiko tinggi mengalami hambatan kelembagaan dan potensi kegagalan implementasi."
+    )
+
+# PEMBACAAN INSTITUSIONAL
+st.subheader("Institutional Drivers")
+
+drivers = []
+
+if benefit >= 7:
+    drivers.append("insentif perubahan cukup kuat")
+
+if information >= 7:
+    drivers.append("framing informasi mendukung perubahan")
+
+if normative >= 7:
+    drivers.append("dukungan moral dan sosial mulai terbentuk")
+
+if len(drivers) > 0:
+    for item in drivers:
+        st.write(f"• {item}")
+
+else:
+    st.write("Belum ada driver institusional yang cukup kuat.")
+
+st.divider()
+
+st.subheader("Institutional Risks")
+
+risks = []
+
+if cost >= 7:
+    risks.append("biaya koordinasi dan transaksi masih tinggi")
+
+if resistance_score >= 6:
+    risks.append("resistensi kelembagaan masih cukup kuat")
+
+if normative <= 4:
+    risks.append("dukungan moral terhadap perubahan masih lemah")
+
+if len(risks) > 0:
+    for item in risks:
+        st.write(f"• {item}")
+
+else:
+    st.write("Risiko kelembagaan relatif terkendali.")
 
 elif selected_step == "7. Reflective Relevance":
 
