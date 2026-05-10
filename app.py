@@ -410,10 +410,10 @@ elif selected_step == "5. Resistance Analysis":
 
     # RESISTANCE COMPONENTS
 
-    benefit = st.session_state.benefit_score
-    cost = st.session_state.cost_score
-    information = st.session_state.information_score
-    normative = st.session_state.normative_score
+    benefit = st.session_state.get("benefit_score", 5)
+    cost = st.session_state.get("cost_score", 5)
+    information = st.session_state.get("information_score", 5)
+    normative = st.session_state.get("normative_score", 5)
 
     incentive_resistance = 10 - benefit
     administrative_resistance = cost
@@ -502,10 +502,10 @@ elif selected_step == "6. Feasibility Projection":
     st.subheader("Feasibility Analysis")
 
 # AMBIL DATA DARI SIMULATION
-benefit = st.session_state.benefit_score
-cost = st.session_state.cost_score
-information = st.session_state.information_score
-normative = st.session_state.normative_score
+benefit = st.session_state.get("benefit_score", 5)
+cost = st.session_state.get("cost_score", 5)
+information = st.session_state.get("information_score", 5)
+normative = st.session_state.get("normative_score", 5)
 
 # AMBIL RESISTANCE SCORE
 incentive_resistance = 10 - benefit
