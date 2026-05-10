@@ -216,6 +216,7 @@ elif selected_step == "4. Design Simulation":
         0,
         10,
         5
+        key="benefit_slider"
     )
 
     st.session_state.cost_score = st.slider(
@@ -223,6 +224,7 @@ elif selected_step == "4. Design Simulation":
         0,
         10,
         5
+        key="cost_slider"
     )
 
     st.session_state.information_score = st.slider(
@@ -230,13 +232,15 @@ elif selected_step == "4. Design Simulation":
         0,
         10,
         5
+        key="information_slider"
     )
 
     st.session_state.normative_score = st.slider(
         "Normative / Moral Support",
         0,
-       10,
-       5
+        10,
+        5
+        key="normative_slider"
     )
 
     st.session_state.cost_score = st.slider(
