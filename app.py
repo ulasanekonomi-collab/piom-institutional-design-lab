@@ -243,24 +243,6 @@ elif selected_step == "4. Design Simulation":
         key="normative_slider"
     )
 
-    st.session_state.cost_score = st.slider(
-        "Transaction Cost",
-        0, 10,
-        st.session_state.cost_score
-    )
-
-    st.session_state.information_score = st.slider(
-        "Information / Framing",
-        0, 10,
-        st.session_state.information_score
-    )
-
-    st.session_state.normative_score = st.slider(
-        "Normative / Moral Support",
-        0, 10,
-        st.session_state.normative_score
-    )
-
     # BEHAVIORAL EQUATION
 
     behavior_score = (
