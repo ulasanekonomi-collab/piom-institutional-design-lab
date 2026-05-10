@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 # =====================================
 # SESSION STATE
 # =====================================
@@ -47,8 +48,19 @@ selected_step = st.sidebar.radio(
 # HEADER
 # =====================================
 
-st.title("PIOM Institutional Design Lab")
+logo = Image.open("assets/logounisba.png")
+foto = Image.open("assets/yuhka.jpg")
 
+col1, col2 = st.columns([1,4])
+
+with col1:
+    st.image(logo, width=130)
+
+with col2:
+    st.title("PIOM Institutional Design Lab")
+    st.caption("Laboratorium desain kelembagaan untuk diagnosis, simulasi, refleksi, dan rekayasa institusional.")
+
+st.image(foto, width=180)
 st.markdown("""
 Laboratorium desain kelembagaan untuk diagnosis,
 simulasi, refleksi, dan rekayasa institusional.
