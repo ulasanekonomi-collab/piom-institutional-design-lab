@@ -67,7 +67,7 @@ if selected_step == "1. Problem Identification":
     st.subheader("Describe the Problem")
 
     st.session_state.problem = st.text_area(
-    "Apa masalah utama yang ingin dianalisis?",
+    "Apa masalah utama yang dianalisis?",
     value=st.session_state.problem)
 
     st.session_state.impact = st.text_area(
