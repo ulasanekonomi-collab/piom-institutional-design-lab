@@ -116,14 +116,31 @@ elif selected_step == "3. Root Cause Reflection":
 
     st.subheader("Reflective Diagnosis")
 
-    st.write("""
-    Refleksikan:
-    - akar masalah
-    - struktur insentif
-    - legitimasi
-    - budaya
-    - relasi kekuasaan
-    """)
+    root_cause = st.text_area(
+        label="Apa akar terdalam dari masalah ini?",
+        placeholder="contoh: budaya patronase, ketakutan kehilangan posisi, struktur insentif yang salah"
+    )
+
+    reproduction = st.text_area(
+        label="Mengapa masalah ini terus direproduksi dari waktu ke waktu?",
+        placeholder="contoh: tidak ada hukuman, elite diuntungkan, organisasi terbiasa dengan pola lama"
+    )
+
+    blocked_change = st.text_area(
+        label="Apa yang paling menghambat perubahan?",
+        placeholder="contoh: resistensi elite, legitimasi budaya lama, ketergantungan sistem"
+    )
+
+    reflective_note = st.text_area(
+        label="Refleksi kritis Anda terhadap sistem ini",
+        placeholder="Apa yang sebenarnya sedang dipertahankan oleh sistem?"
+    )
+
+    st.info(
+        "Tahap ini membantu pengguna memahami bahwa masalah kelembagaan biasanya diproduksi ulang oleh struktur insentif, relasi kekuasaan, dan budaya organisasi."
+    )
+
+
 
 elif selected_step == "4. Design Simulation":
 
