@@ -82,39 +82,61 @@ elif selected_step == "2. Institutional Diagnosis":
 
     st.subheader("Institutional Mapping")
 
-    power_map = st.text_area(
+    # INITIALIZE SESSION STATE
+    if "power_map" not in st.session_state:
+        st.session_state.power_map = ""
+
+    if "institution_map" not in st.session_state:
+        st.session_state.institution_map = ""
+
+    if "incentive_map" not in st.session_state:
+        st.session_state.incentive_map = ""
+
+    if "cost_map" not in st.session_state:
+        st.session_state.cost_map = ""
+
+    if "behavior_map" not in st.session_state:
+        st.session_state.behavior_map = ""
+
+    if "outcome_map" not in st.session_state:
+        st.session_state.outcome_map = ""
+
+    # TEXT AREAS
+
+    st.session_state.power_map = st.text_area(
         label="Siapa aktor dominan atau paling berpengaruh?",
-        placeholder="contoh: pimpinan, elite birokrasi, vendor, kelompok senior",
-        key="power_map"
+        value=st.session_state.power_map,
+        placeholder="contoh: pimpinan, elite birokrasi, vendor, kelompok senior"
     )
 
-    institution_map = st.text_area(
+    st.session_state.institution_map = st.text_area(
         label="Aturan formal atau norma informal apa yang memperkuat masalah?",
-        placeholder="contoh: SOP usang, budaya senioritas, aturan birokratis",
-        key="institution_map"
+        value=st.session_state.institution_map,
+        placeholder="contoh: SOP usang, budaya senioritas, aturan birokratis"
     )
 
-    incentive_map = st.text_area(
+    st.session_state.incentive_map = st.text_area(
         label="Insentif apa yang membuat perilaku bermasalah tetap bertahan?",
-        placeholder="contoh: reward salah sasaran, keuntungan politik, kenyamanan status quo",
-        key="incentive_map"
+        value=st.session_state.incentive_map,
+        placeholder="contoh: reward salah sasaran, keuntungan politik, kenyamanan status quo"
     )
 
-    cost_map = st.text_area(
+    st.session_state.cost_map = st.text_area(
         label="Apa sumber transaction cost utama?",
-        placeholder="contoh: koordinasi lambat, birokrasi panjang, data tidak terintegrasi",
-        key="cost_map"
+        value=st.session_state.cost_map,
+        placeholder="contoh: koordinasi lambat, birokrasi panjang, data tidak terintegrasi"
     )
 
-    behavior_map = st.text_area(
+    st.session_state.behavior_map = st.text_area(
         label="Perilaku apa yang terus berulang dalam sistem?",
-        placeholder="contoh: saling lempar tanggung jawab, keterlambatan, manipulasi laporan",
+        value=st.session_state.behavior_map,
+        placeholder="contoh: saling lempar tanggung jawab, keterlambatan, manipulasi laporan"
     )
 
-    outcome_map = st.text_area(
+    st.session_state.outcome_map = st.text_area(
         label="Outcome buruk apa yang terus diproduksi sistem?",
-        placeholder="contoh: pelayanan lambat, konflik internal, distrust publik",
-        key=" outcome_map"
+        value=st.session_state.outcome_map,
+        placeholder="contoh: pelayanan lambat, konflik internal, distrust publik"
     )
 
 elif selected_step == "3. Root Cause Reflection":
