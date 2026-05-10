@@ -311,6 +311,8 @@ elif selected_step == "5. Resistance Analysis":
     keyword_resistance = 0
 
     detected_keywords = []
+    positive_keywords = []
+    # NEGATIVE INSTITUTIONAL SIGNALS
     if "senioritas" in institution_text:
         keyword_resistance += 2
         detected_keywords.append("senioritas")
@@ -346,7 +348,32 @@ elif selected_step == "5. Resistance Analysis":
     if "tidak ada sanksi" in institution_text:
         keyword_resistance += 1
         detected_keywords.append("tidak ada sanksi")
-   
+    # POSITIVE INSTITUTIONAL SIGNALS
+
+    if "kolaboratif" in institution_text:
+        keyword_resistance -= 1
+        positive_keywords.append("kolaboratif")
+
+    if "transparan" in institution_text:
+        keyword_resistance -= 1
+        positive_keywords.append("transparan")
+
+    if "akuntabel" in institution_text:
+        keyword_resistance -= 1
+        positive_keywords.append("akuntabel")
+
+    if "meritokrasi" in institution_text:
+        keyword_resistance -= 2
+        positive_keywords.append("meritokrasi")
+
+    if "inovatif" in institution_text:
+        keyword_resistance -= 1
+        positive_keywords.append("inovatif")
+
+    if "reformis" in institution_text:
+        keyword_resistance -= 2
+        positive_keywords.append("reformis")
+    
     # AMBIL DATA DARI SIMULATION
 
     benefit = st.session_state.get("benefit_score", 5)
@@ -374,16 +401,23 @@ elif selected_step == "5. Resistance Analysis":
         "Institutional Resistance Score",
         round(resistance_score, 2)
     )
-    st.write("### Institutional Signals Detected")
+st.write("### Institutional Signals Detected")
 
-    if detected_keywords:
+if detected_keywords:
 
-        for keyword in detected_keywords:
-            st.write(f"- {keyword}")
+    for keyword in detected_keywords:
+        st.write(f"- {keyword}")
 
-    else:
+if positive_keywords:
 
-        st.write("Tidak ada sinyal institusional spesifik terdeteksi.")
+    st.write("### Positive Institutional Signals")
+
+    for keyword in positive_keywords:
+        st.write(f"✅ {keyword}")
+
+if not detected_keywords and not positive_keywords:
+
+    st.write("Tidak ada sinyal institusional spesifik terdeteksi.")
     
     st.divider()
 
