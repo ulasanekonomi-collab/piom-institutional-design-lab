@@ -246,14 +246,11 @@ elif selected_step == "4. Design Simulation":
 
     # NORMALIZATION
 
-    probability_change = max(
-        0,
-        min(
-            100,
-            int((behavior_score / 20) * 100)
-        )
-    )
+    normalized_score = behavior_score + 10
 
+    probability_change = int(
+    (normalized_score / 40) * 100
+    )
     st.divider()
 
     st.subheader("Behavioral Projection")
