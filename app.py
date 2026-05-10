@@ -1,5 +1,16 @@
 import streamlit as st
+# =====================================
+# SESSION STATE
+# =====================================
 
+if "problem" not in st.session_state:
+    st.session_state.problem = ""
+
+if "impact" not in st.session_state:
+    st.session_state.impact = ""
+
+if "bad_outcome" not in st.session_state:
+    st.session_state.bad_outcome = ""
 # =====================================
 # PAGE CONFIG
 # =====================================
@@ -55,17 +66,17 @@ if selected_step == "1. Problem Identification":
 
     st.subheader("Describe the Problem")
 
-    problem = st.text_area(
-        "Apa masalah utama yang ingin dianalisis?"
-    )
+    st.session_state.problem = st.text_area(
+    "Apa masalah utama yang ingin dianalisis?",
+    value=st.session_state.problem)
 
-    impact = st.text_area(
-        "Siapa yang terdampak?"
-    )
+    st.session_state.impact = st.text_area(
+    "Siapa yang terdampak?",
+    value=st.session_state.impact)
 
-    outcome = st.text_area(
-        "Outcome buruk apa yang muncul?"
-    )
+    st.session_state.bad_outcome = st.text_area(
+    "Outcome buruk apa yang muncul?",
+    value=st.session_state.bad_outcome)
 
 elif selected_step == "2. Institutional Diagnosis":
 
