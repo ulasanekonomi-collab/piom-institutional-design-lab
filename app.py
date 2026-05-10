@@ -290,11 +290,98 @@ elif selected_step == "4. Design Simulation":
 
 elif selected_step == "5. Resistance Analysis":
 
-    st.subheader("Institutional Resistance")
+    st.subheader("Institutional Resistance Analysis")
 
-    st.slider("Elite Resistance", 0, 10, 5)
-    st.slider("Institutional Rigidity", 0, 10, 5)
-    st.slider("Path Dependency", 0, 10, 5)
+    # AMBIL DATA DARI SIMULATION
+
+    benefit = st.session_state.benefit_score
+    cost = st.session_state.cost_score
+    information = st.session_state.information_score
+    normative = st.session_state.normative_score
+
+    # RESISTANCE COMPONENTS
+
+    incentive_resistance = 10 - benefit
+    administrative_resistance = cost
+    perception_resistance = 10 - information
+    cultural_resistance = 10 - normative
+
+    # TOTAL RESISTANCE
+
+    resistance_score = (
+        incentive_resistance
+        + administrative_resistance
+        + perception_resistance
+        + cultural_resistance
+    ) / 4
+
+    st.metric(
+        "Institutional Resistance Score",
+        round(resistance_score, 2)
+    )
+
+    st.divider()
+
+    st.subheader("Resistance Interpretation")
+
+    # INTERPRETATION
+
+    if resistance_score <= 3:
+
+        st.success(
+            "Resistensi kelembagaan relatif rendah dan sistem mulai mendukung perubahan."
+        )
+
+    elif resistance_score <= 6:
+
+        st.warning(
+            "Resistensi kelembagaan masih cukup kuat dan reformasi membutuhkan dukungan tambahan."
+        )
+
+    else:
+
+        st.error(
+            "Resistensi sistemik masih tinggi dan berpotensi menghambat implementasi perubahan."
+        )
+
+    st.divider()
+
+    st.subheader("Institutional Reading")
+
+    # DYNAMIC READING
+
+    if incentive_resistance >= 7:
+
+        st.write(
+            "- Sistem masih memberi keuntungan pada perilaku lama."
+        )
+
+    if administrative_resistance >= 7:
+
+        st.write(
+            "- Hambatan birokrasi dan koordinasi masih tinggi."
+        )
+
+    if perception_resistance >= 7:
+
+        st.write(
+            "- Framing dan legitimasi perubahan masih lemah."
+        )
+
+    if cultural_resistance >= 7:
+
+        st.write(
+            "- Norma dan budaya kelembagaan belum mendukung perubahan."
+        )
+
+    st.info(
+        """
+        Resistance Analysis membantu pengguna memahami bahwa
+        hambatan perubahan biasanya berasal dari kombinasi
+        insentif lama, budaya organisasi, hambatan administratif,
+        dan legitimasi perubahan yang belum kuat.
+        """
+    )
 
 elif selected_step == "6. Feasibility Projection":
 
