@@ -213,8 +213,30 @@ elif selected_step == "4. Design Simulation":
 
     st.session_state.benefit_score = st.slider(
         "Benefit / Incentive",
-        0, 10,
-        st.session_state.benefit_score
+        0,
+        10,
+        5
+    )
+
+    st.session_state.cost_score = st.slider(
+        "Transaction Cost",
+        0,
+        10,
+        5
+    )
+
+    st.session_state.information_score = st.slider(
+        "Information / Framing",
+        0,
+        10,
+        5
+    )
+
+    st.session_state.normative_score = st.slider(
+        "Normative / Moral Support",
+        0,
+       10,
+       5
     )
 
     st.session_state.cost_score = st.slider(
