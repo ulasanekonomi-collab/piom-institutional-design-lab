@@ -215,7 +215,7 @@ elif selected_step == "4. Design Simulation":
         "Benefit / Incentive",
         0,
         10,
-        5
+        5,
         key="benefit_slider"
     )
 
@@ -223,7 +223,7 @@ elif selected_step == "4. Design Simulation":
         "Transaction Cost",
         0,
         10,
-        5
+        5,
         key="cost_slider"
     )
 
@@ -231,7 +231,7 @@ elif selected_step == "4. Design Simulation":
         "Information / Framing",
         0,
         10,
-        5
+        5,
         key="information_slider"
     )
 
@@ -239,7 +239,7 @@ elif selected_step == "4. Design Simulation":
         "Normative / Moral Support",
         0,
         10,
-        5
+        5,
         key="normative_slider"
     )
 
