@@ -317,7 +317,54 @@ elif selected_step == "4. Design Simulation":
 elif selected_step == "5. Resistance Analysis":
 
     st.subheader("Institutional Resistance Analysis")
+    
+    institution_text = (
+        st.session_state.get("institution_map", "") + " " +
+        st.session_state.get("power_map", "") + " " +
+        st.session_state.get("behavior_map", "") + " " +
+        st.session_state.get("outcome_map", "") + " " +
+        st.session_state.get("root_cause", "") + " " +
+        st.session_state.get("reproduction", "")
+    ).lower()
+    keyword_resistance = 0
 
+    detected_keywords = []
+    if "senioritas" in institution_text:
+        keyword_resistance += 2
+        detected_keywords.append("senioritas")
+
+    if "asal bapak senang" in institution_text or "abs" in institution_text:
+        keyword_resistance += 2
+        detected_keywords.append("ABS")
+
+    if "ego sektoral" in institution_text:
+        keyword_resistance += 1
+        detected_keywords.append("ego sektoral")
+
+    if "birokrasi panjang" in institution_text:
+        keyword_resistance += 2
+        detected_keywords.append("birokrasi panjang")
+
+    if "titipan" in institution_text:
+        keyword_resistance += 2
+        detected_keywords.append("titipan")
+
+    if "main aman" in institution_text:
+        keyword_resistance += 1
+        detected_keywords.append("main aman")
+
+    if "kolaboratif" in institution_text:
+        keyword_resistance -= 1
+        detected_keywords.append("kolaboratif")
+
+    if "transparan" in institution_text:
+        keyword_resistance -= 1
+        detected_keywords.append("transparan")
+
+    if "tidak ada sanksi" in institution_text:
+        keyword_resistance += 1
+        detected_keywords.append("tidak ada sanksi")
+   
     # AMBIL DATA DARI SIMULATION
 
     benefit = st.session_state.get("benefit_score", 5)
@@ -340,12 +387,22 @@ elif selected_step == "5. Resistance Analysis":
         + perception_resistance
         + cultural_resistance
     ) / 4
-
+    resistance_score += keyword_resistance
     st.metric(
         "Institutional Resistance Score",
         round(resistance_score, 2)
     )
+    st.write("### Institutional Signals Detected")
 
+    if detected_keywords:
+
+        for keyword in detected_keywords:
+            st.write(f"- {keyword}")
+
+    else:
+
+        st.write("Tidak ada sinyal institusional spesifik terdeteksi.")
+    
     st.divider()
 
     st.subheader("Resistance Interpretation")
