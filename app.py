@@ -301,12 +301,15 @@ elif selected_step == "5. Resistance Analysis":
     st.subheader("Institutional Resistance Analysis")
     
     institution_text = (
-        st.session_state.get("institution_map", "") + " " +
-        st.session_state.get("power_map", "") + " " +
-        st.session_state.get("behavior_map", "") + " " +
-        st.session_state.get("outcome_map", "") + " " +
+        st.session_state.get("dominant_actor", "") + " " +
+        st.session_state.get("institutional_rules", "") + " " +
+        st.session_state.get("incentive_structure", "") + " " +
+        st.session_state.get("transaction_cost_source", "") + " " +
+        st.session_state.get("repeated_behavior", "") + " " +
         st.session_state.get("root_cause", "") + " " +
-        st.session_state.get("reproduction", "")
+        st.session_state.get("reproduction", "") + " " +
+        st.session_state.get("main_barrier", "") + " " +
+        st.session_state.get("critical_reflection", "")
     ).lower()
     keyword_resistance = 0
 
