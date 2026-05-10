@@ -566,15 +566,25 @@ st.subheader("Institutional Drivers")
 
 drivers = []
 
-if benefit >= 7:
-    drivers.append("insentif perubahan cukup kuat")
+# MODERATE DRIVERS
+if benefit >= 5:
+    drivers.append("insentif perubahan mulai terbentuk")
 
-if information >= 7:
-    drivers.append("framing informasi mendukung perubahan")
+if information >= 5:
+    drivers.append("framing informasi mulai mendukung perubahan")
 
-if normative >= 7:
-    drivers.append("dukungan moral dan sosial mulai terbentuk")
+if normative >= 5:
+    drivers.append("dukungan moral dan sosial mulai berkembang")
 
+# STRONG DRIVERS
+if benefit >= 8:
+    drivers.append("koalisi insentif reformasi cukup kuat")
+
+if information >= 8:
+    drivers.append("narasi perubahan memiliki legitimasi tinggi")
+
+if normative >= 8:
+    drivers.append("dukungan budaya organisasi terhadap reformasi mulai kuat")
 if len(drivers) > 0:
     for item in drivers:
         st.write(f"• {item}")
